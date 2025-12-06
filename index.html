@@ -12,6 +12,7 @@
 </head>
 <body>
   <div class="page">
+
     <!-- Top bar -->
     <header class="nav">
       <div class="nav-title">LoRA on an 8GB GPU</div>
@@ -20,6 +21,7 @@
 
     <!-- Main content -->
     <main class="main">
+
       <!-- Hero -->
       <section class="hero">
         <div class="badge-row">
@@ -34,7 +36,7 @@
         </p>
         <p class="hero-note">
           This page is a human-readable overview of the study design, tracks, and funding context. It links out to
-          plans, drafts, and experiments (once they are ready to share).
+          plans, drafts, and experiments.
         </p>
       </section>
 
@@ -48,6 +50,8 @@
           </p>
 
           <div class="details-group" style="margin-top: 1rem;">
+
+            <!-- Track 1 -->
             <details open>
               <summary>
                 <span class="summary-label">
@@ -57,21 +61,16 @@
                 <span class="chevron">▶</span>
               </summary>
               <div class="details-body">
-                <p>
-                  Small LLMs fine-tuned with LoRA / QLoRA, measuring:
-                </p>
+                <p>Small LLMs fine-tuned with LoRA / QLoRA, measuring:</p>
                 <ul>
                   <li>Task performance (e.g., eval accuracy)</li>
                   <li>Throughput (tokens/sec)</li>
                   <li>Memory behavior (VRAM usage, paging)</li>
                 </ul>
-                <p>
-                  The goal is to see what “respectable” text adaptation looks like on a single 8&nbsp;GB card without
-                  full-model fine-tuning.
-                </p>
               </div>
             </details>
 
+            <!-- Track 2 -->
             <details>
               <summary>
                 <span class="summary-label">
@@ -81,20 +80,16 @@
                 <span class="chevron">▶</span>
               </summary>
               <div class="details-body">
-                <p>
-                  ViT-tiny–scale models trained with LoRA / DoRA to examine:
-                </p>
+                <p>ViT-tiny–scale models trained with LoRA / DoRA:</p>
                 <ul>
-                  <li>Rank and placement tradeoffs</li>
-                  <li>Accuracy vs. parameter budget</li>
-                  <li>Throughput and memory usage on the same 8&nbsp;GB GPU</li>
+                  <li>Rank/placement tradeoffs</li>
+                  <li>Accuracy vs parameter budget</li>
+                  <li>Throughput and memory usage</li>
                 </ul>
-                <p>
-                  This mirrors the text track but in a compact image setting.
-                </p>
               </div>
             </details>
 
+            <!-- Track 3 -->
             <details>
               <summary>
                 <span class="summary-label">
@@ -104,39 +99,35 @@
                 <span class="chevron">▶</span>
               </summary>
               <div class="details-body">
-                <p>
-                  Evaluates serving many task-specific LoRA adapters on a single base model:
-                </p>
+                <p>Evaluates serving many task-specific LoRA adapters:</p>
                 <ul>
-                  <li>Merged vs. unmerged adapters</li>
-                  <li>Latency and time-to-first-token</li>
-                  <li>Memory footprint when multiple tasks share one base</li>
+                  <li>Merged vs unmerged adapters</li>
+                  <li>Latency + time-to-first-token</li>
+                  <li>Memory footprint for shared base model</li>
                 </ul>
-                <p>
-                  This track treats LoRA as an inference/serving problem, not just training.
-                </p>
               </div>
             </details>
+
           </div>
         </div>
 
-        <!-- Meta / Quick facts -->
+        <!-- Quick facts -->
         <aside class="section-card">
           <div class="meta-label">Quick facts</div>
           <div class="meta-block">
-            <strong>Hardware constraint:</strong> single 8&nbsp;GB GPU (e.g., consumer card).<br />
-            <strong>Method:</strong> parameter-efficient fine-tuning (LoRA-family).<br />
-            <strong>Scope:</strong> text, vision, and multi-adapter serving.
+            <strong>Hardware:</strong> single 8&nbsp;GB GPU<br />
+            <strong>Methods:</strong> LoRA-family PEFT<br />
+            <strong>Scope:</strong> text + vision + serving
             <div class="meta-pill-row">
-              <span class="meta-pill">Resource-constrained training</span>
-              <span class="meta-pill">Practical GPU budgets</span>
-              <span class="meta-pill">Serving behavior</span>
+              <span class="meta-pill">Resource-constrained</span>
+              <span class="meta-pill">GPU efficiency</span>
+              <span class="meta-pill">Adapter serving</span>
             </div>
           </div>
         </aside>
       </section>
 
-      <!-- 4th Track and Funding -->
+      <!-- 4th Track + Funding -->
       <section class="section-grid">
         <div class="section-card">
           <div class="meta-label">4th track</div>
@@ -145,58 +136,110 @@
             <summary>
               <span class="summary-label">
                 <span class="summary-tag">Track&nbsp;4</span>
-                <span>Workflow, cost, and training process</span>
+                <span>Workflow, cost, and process</span>
               </span>
               <span class="chevron">▶</span>
             </summary>
+
             <div class="details-body">
-              <p>
-                A fourth component evaluates the <strong>training workflow itself</strong>, not just model metrics.
-              </p>
+              <p>Focuses on the training workflow itself:</p>
               <ul>
-                <li>Comparing local 8&nbsp;GB GPU runs to cloud runs funded by credits</li>
-                <li>Tracking time, energy use, cost per 10k tokens, and cost per 1% accuracy gain</li>
-                <li>
-                  Treating the full LoRA lifecycle—local experiment → cloud execution → deployment (e.g., HF/Gradio)—
-                  as an object of study
-                </li>
+                <li>Local 8&nbsp;GB GPU vs cloud compute</li>
+                <li>Time, energy, cost-per-token metrics</li>
+                <li>Lifecycle: local → cloud → deployment</li>
               </ul>
-              <p>
-                This track connects directly to the real-world constraints most practitioners face when they do not
-                control large clusters.
-              </p>
             </div>
           </details>
         </div>
 
         <aside class="section-card">
-          <div class="meta-label">Funding & compute credits</div>
+          <div class="meta-label">Funding</div>
           <div class="meta-block">
-            <p>
-              The project currently includes <strong>$150 of Tinker compute credits</strong>, used as seed funding for
-              remote experiments.
-            </p>
-            <p>
-              These credits will either:
-            </p>
+            <p>The project includes <strong>$150 Tinker compute credits</strong> for cloud experiments.</p>
+            <p>These credits either:</p>
             <ul>
-              <li>Be consumed in a focused burst of comparative LoRA trials, or</li>
-              <li>Serve as the starting point for extended workflow and cost analysis.</li>
+              <li>Fund a focused burst of LoRA trials, or</li>
+              <li>Seed extended workflow/cost analysis.</li>
             </ul>
-            <p>
-              How quickly they are spent—and on which tracks—becomes part of the story about realistic experimentation
-              under tight budgets.
-            </p>
           </div>
         </aside>
       </section>
+
+      <!-- Interactive Chart -->
+      <section class="section-card" style="margin-top: 2.3rem;">
+        <div class="meta-label">LoRA Trade-off Explorer</div>
+        <p class="meta-block">Move the slider to explore how LoRA rank affects accuracy, VRAM usage, and throughput.</p>
+
+        <div style="margin-top: 1.5rem;">
+          <input id="rankSlider" type="range" min="1" max="64" value="8" step="1" style="width: 100%;" />
+          <p style="text-align: center; margin-top: 0.5rem;">
+            Rank: <span id="rankValue">8</span>
+          </p>
+        </div>
+
+        <canvas id="loraChart" height="120" style="margin-top: 1.5rem;"></canvas>
+      </section>
+
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-      LoRA on an 8&nbsp;GB GPU — MS thesis study overview. This site is an evolving summary; details may change as the
-      research progresses.
+      LoRA on an 8&nbsp;GB GPU — MS thesis study overview. This site is evolving as the research progresses.
     </footer>
+
   </div>
+
+  <!-- Chart.js + slider logic -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('loraChart').getContext('2d');
+
+    // Example synthetic data (replace with real measurements if desired)
+    const loraData = {};
+    for (let r = 1; r <= 64; r++) {
+      loraData[r] = {
+        accuracy: 0.55 + Math.log(r) * 0.05,
+        vram: 2.2 + r * 0.02,
+        throughput: 310 - r * 2.5
+      };
+    }
+
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Accuracy', 'VRAM (GB)', 'Throughput (tok/s)'],
+        datasets: [{
+          label: 'LoRA Metrics',
+          data: [0, 0, 0],
+          borderColor: 'rgba(96,165,250,1)',
+          backgroundColor: 'rgba(96,165,250,0.3)',
+          tension: 0.3,
+          fill: true
+        }]
+      },
+      options: { scales: { y: { beginAtZero: false } } }
+    });
+
+    const slider = document.getElementById('rankSlider');
+    const rankValue = document.getElementById('rankValue');
+
+    function updateChart(rank) {
+      const m = loraData[rank];
+      chart.data.datasets[0].data = [
+        m.accuracy.toFixed(3),
+        m.vram.toFixed(2),
+        m.throughput.toFixed(1)
+      ];
+      chart.update();
+    }
+
+    slider.addEventListener('input', () => {
+      rankValue.textContent = slider.value;
+      updateChart(slider.value);
+    });
+
+    updateChart(8);
+  </script>
+
 </body>
 </html>
