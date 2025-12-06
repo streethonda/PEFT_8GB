@@ -184,12 +184,7 @@ details[open] .chevron {
   line-height: 1.5;
 }
 
-.details-body ul {
-  margin: 0.3rem 0 0.3rem 1.2rem;
-  padding: 0;
-}
-
-/* ---------- Meta Columns ---------- */
+/* ---------- Meta ---------- */
 .meta-label {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -226,4 +221,3 @@ details[open] .chevron {
   font-size: 0.8rem;
   color: #6b7280;
 }
-
