@@ -35,21 +35,29 @@
           MS thesis project on parameter-efficient fine-tuning (LoRA) under strict 8&nbsp;GB GPU constraints.
         </p>
         <p class="hero-note">
-          This page is a human-readable overview of the study design, tracks, and funding context. It links out to
-          plans, drafts, and experiments.
+          This page summarizes the study design, tracks, and the funding that supports the project.
         </p>
       </section>
 
-      <!-- Study Focus + Tracks -->
+      <!-- Unified Tracks Section -->
       <section class="section-grid">
         <div class="section-card">
-          <div class="meta-label">Study Focus</div>
+          <div class="meta-label">Study Tracks</div>
+
           <p class="meta-block">
-            The core study evaluates how LoRA behaves when training and serving models on an 8&nbsp;GB GPU. It examines
-            three experimental tracks plus a fourth workflow/cost track.
+            The study evaluates LoRA behavior under strict 8&nbsp;GB GPU constraints across four integrated tracks.
+            Track&nbsp;4 exists primarily because <strong>Thinking Machines</strong> provided $150 in research credits,
+            enabling workflow and budget analysis beyond the model-performance tracks.
           </p>
 
-          <div class="details-group" style="margin-top: 1rem;">
+          <div style="margin-top: 0.8rem; display: flex; align-items: center; gap: 0.7rem;">
+            <img src="tinker-logo.png" alt="Thinking Machines Logo" style="height:48px; width:auto; border-radius:6px;">
+            <a href="https://thinkingmachines.ai/tinker/" target="_blank" style="font-size:0.9rem; color:#60a5fa;">
+              Thinking Machines Tinker — Research Funding Program
+            </a>
+          </div>
+
+          <div class="details-group" style="margin-top: 1.4rem;">
 
             <!-- Track 1 -->
             <details open>
@@ -61,11 +69,11 @@
                 <span class="chevron">▶</span>
               </summary>
               <div class="details-body">
-                <p>Small LLMs fine-tuned with LoRA / QLoRA, measuring:</p>
                 <ul>
-                  <li>Task performance (e.g., eval accuracy)</li>
+                  <li>Small LLMs fine-tuned with LoRA/QLoRA</li>
+                  <li>Task performance (accuracy, eval metrics)</li>
                   <li>Throughput (tokens/sec)</li>
-                  <li>Memory behavior (VRAM usage, paging)</li>
+                  <li>VRAM usage and paging behavior</li>
                 </ul>
               </div>
             </details>
@@ -80,11 +88,10 @@
                 <span class="chevron">▶</span>
               </summary>
               <div class="details-body">
-                <p>ViT-tiny–scale models trained with LoRA / DoRA:</p>
                 <ul>
-                  <li>Rank/placement tradeoffs</li>
-                  <li>Accuracy vs parameter budget</li>
-                  <li>Throughput and memory usage</li>
+                  <li>Training ViT-tiny with LoRA / DoRA</li>
+                  <li>Rank & placement tradeoffs</li>
+                  <li>Accuracy vs compute/memory use</li>
                 </ul>
               </div>
             </details>
@@ -99,147 +106,77 @@
                 <span class="chevron">▶</span>
               </summary>
               <div class="details-body">
-                <p>Evaluates serving many task-specific LoRA adapters:</p>
                 <ul>
-                  <li>Merged vs unmerged adapters</li>
-                  <li>Latency + time-to-first-token</li>
-                  <li>Memory footprint for shared base model</li>
+                  <li>Serving many LoRA adapters on one base model</li>
+                  <li>Latency and time-to-first-token</li>
+                  <li>Merged vs unmerged adapter behavior</li>
                 </ul>
+              </div>
+            </details>
+
+            <!-- Track 4 (Funding integrated) -->
+            <details>
+              <summary>
+                <span class="summary-label">
+                  <span class="summary-tag">Track&nbsp;4</span>
+                  <span>Workflow, cost, credits, and training process</span>
+                </span>
+                <span class="chevron">▶</span>
+              </summary>
+
+              <div class="details-body">
+                <p>
+                  Track 4 analyzes the <strong>end-to-end workflow and financial efficiency</strong> of LoRA training,
+                  made possible by <strong>$150 Tinker compute credits</strong>. It compares local 4060&nbsp;Ti runs
+                  against credit-funded cloud training (A100s, HF Spaces, Gradio apps, etc.).
+                </p>
+
+                <p><strong>Core objectives:</strong></p>
+                <ul>
+                  <li>Measure wall-clock time, energy & CO₂ (Avinash carbon-accounting)</li>
+                  <li>Record $ cost per experiment (Tracks 1–3)</li>
+                  <li>Analyze cost-per-10k tokens and cost-per-1% accuracy</li>
+                  <li>Determine the break-even point: local GPU vs cloud compute</li>
+                </ul>
+
+                <p><strong>Applied component:</strong></p>
+                <ul>
+                  <li>Prototype a LoRA-tuned image generator</li>
+                  <li>Train locally → scale with credits → deploy on HF Spaces</li>
+                  <li>Create a reproducible, budget-aware training lifecycle</li>
+                </ul>
+
               </div>
             </details>
 
           </div>
         </div>
 
-        <!-- Quick facts -->
+        <!-- Literature/Links Sidebar -->
         <aside class="section-card">
-          <div class="meta-label">Quick facts</div>
+          <div class="meta-label">References & Documents</div>
+
           <div class="meta-block">
-            <strong>Hardware:</strong> single 8&nbsp;GB GPU<br />
-            <strong>Methods:</strong> LoRA-family PEFT<br />
-            <strong>Scope:</strong> text + vision + serving
-            <div class="meta-pill-row">
-              <span class="meta-pill">Resource-constrained</span>
-              <span class="meta-pill">GPU efficiency</span>
-              <span class="meta-pill">Adapter serving</span>
-            </div>
+            <p><strong>Original LoRA Paper:</strong></p>
+            <p>
+              <a href="https://arxiv.org/abs/2106.09685" target="_blank">
+                LoRA: Low-Rank Adaptation of Large Language Models
+              </a>
+            </p>
+
+            <p style="margin-top: 1.2rem;"><strong>Literature Review (placeholder):</strong></p>
+            <p><em>Upcoming overview of PEFT and LoRA-related work.</em></p>
           </div>
         </aside>
-      </section>
-
-      <!-- 4th Track + Funding -->
-      <section class="section-grid">
-        <div class="section-card">
-          <div class="meta-label">4th track</div>
-
-          <details open>
-            <summary>
-              <span class="summary-label">
-                <span class="summary-tag">Track&nbsp;4</span>
-                <span>Workflow, cost, and process</span>
-              </span>
-              <span class="chevron">▶</span>
-            </summary>
-
-            <div class="details-body">
-              <p>Focuses on the training workflow itself:</p>
-              <ul>
-                <li>Local 8&nbsp;GB GPU vs cloud compute</li>
-                <li>Time, energy, cost-per-token metrics</li>
-                <li>Lifecycle: local → cloud → deployment</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <aside class="section-card">
-          <div class="meta-label">Funding</div>
-          <div class="meta-block">
-            <p>The project includes <strong>$150 Tinker compute credits</strong> for cloud experiments.</p>
-            <p>These credits either:</p>
-            <ul>
-              <li>Fund a focused burst of LoRA trials, or</li>
-              <li>Seed extended workflow/cost analysis.</li>
-            </ul>
-          </div>
-        </aside>
-      </section>
-
-      <!-- Interactive Chart -->
-      <section class="section-card" style="margin-top: 2.3rem;">
-        <div class="meta-label">LoRA Trade-off Explorer</div>
-        <p class="meta-block">Move the slider to explore how LoRA rank affects accuracy, VRAM usage, and throughput.</p>
-
-        <div style="margin-top: 1.5rem;">
-          <input id="rankSlider" type="range" min="1" max="64" value="8" step="1" style="width: 100%;" />
-          <p style="text-align: center; margin-top: 0.5rem;">
-            Rank: <span id="rankValue">8</span>
-          </p>
-        </div>
-
-        <canvas id="loraChart" height="120" style="margin-top: 1.5rem;"></canvas>
       </section>
 
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-      LoRA on an 8&nbsp;GB GPU — MS thesis study overview. This site is evolving as the research progresses.
+      LoRA on an 8&nbsp;GB GPU — MS thesis study overview. This site is an evolving summary.
     </footer>
 
   </div>
-
-  <!-- Chart.js + slider logic -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    const ctx = document.getElementById('loraChart').getContext('2d');
-
-    // Example synthetic data (replace with real measurements if desired)
-    const loraData = {};
-    for (let r = 1; r <= 64; r++) {
-      loraData[r] = {
-        accuracy: 0.55 + Math.log(r) * 0.05,
-        vram: 2.2 + r * 0.02,
-        throughput: 310 - r * 2.5
-      };
-    }
-
-    const chart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['Accuracy', 'VRAM (GB)', 'Throughput (tok/s)'],
-        datasets: [{
-          label: 'LoRA Metrics',
-          data: [0, 0, 0],
-          borderColor: 'rgba(96,165,250,1)',
-          backgroundColor: 'rgba(96,165,250,0.3)',
-          tension: 0.3,
-          fill: true
-        }]
-      },
-      options: { scales: { y: { beginAtZero: false } } }
-    });
-
-    const slider = document.getElementById('rankSlider');
-    const rankValue = document.getElementById('rankValue');
-
-    function updateChart(rank) {
-      const m = loraData[rank];
-      chart.data.datasets[0].data = [
-        m.accuracy.toFixed(3),
-        m.vram.toFixed(2),
-        m.throughput.toFixed(1)
-      ];
-      chart.update();
-    }
-
-    slider.addEventListener('input', () => {
-      rankValue.textContent = slider.value;
-      updateChart(slider.value);
-    });
-
-    updateChart(8);
-  </script>
-
 </body>
 </html>
