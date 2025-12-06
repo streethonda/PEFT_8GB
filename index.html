@@ -45,9 +45,9 @@
           <div class="meta-label">Study Tracks</div>
 
           <p class="meta-block">
-            The study evaluates LoRA behavior under strict 8&nbsp;GB GPU constraints across four integrated tracks.
-            Track&nbsp;4 exists primarily because <strong>Thinking Machines</strong> provided $150 in research credits,
-            enabling workflow and budget analysis beyond the model-performance tracks.
+            The study evaluates LoRA behavior under tight 8&nbsp;GB GPU limits across four integrated tracks.
+            Track&nbsp;4 exists because <strong>Thinking Machines</strong> provided $150 in research credits,
+            enabling workflow and budget analysis beyond the core model-performance tracks.
           </p>
 
           <div class="details-group" style="margin-top: 1.4rem;">
@@ -66,7 +66,7 @@
                   <li>Small LLMs fine-tuned with LoRA/QLoRA</li>
                   <li>Task performance (accuracy, eval metrics)</li>
                   <li>Throughput (tokens/sec)</li>
-                  <li>VRAM usage and paging behavior</li>
+                  <li>VRAM behavior (paging, spills)</li>
                 </ul>
               </div>
             </details>
@@ -101,13 +101,13 @@
               <div class="details-body">
                 <ul>
                   <li>Serving many LoRA adapters on one base model</li>
-                  <li>Latency and time-to-first-token</li>
                   <li>Merged vs unmerged adapter behavior</li>
+                  <li>Latency & time-to-first-token</li>
                 </ul>
               </div>
             </details>
 
-            <!-- Track 4 (Funding integrated + geometric SVG) -->
+            <!-- Track 4 (Funding integrated + geometric PNG) -->
             <details>
               <summary>
                 <span class="summary-label">
@@ -119,36 +119,36 @@
 
               <div class="details-body">
 
-                <!-- Geometric SVG placement -->
-                <div style="text-align:center; margin-bottom:1rem;">
-                  <img src="tinker-geom.svg"
-                       alt="Tinker geometric design"
-                       style="height:90px; width:auto; opacity:0.85;">
+                <!-- GEOMETRIC PNG IMAGE -->
+                <div style="text-align:center; margin-bottom:1.1rem;">
+                  <img src="tinker-geom.png"
+                       alt="Thinking Machines geometric visual"
+                       style="max-width:80%; height:auto; opacity:0.9; border-radius:6px;">
                 </div>
 
                 <p>
                   Track 4 analyzes the <strong>end-to-end workflow and financial efficiency</strong> of LoRA training,
-                  made possible by <strong>$150 Tinker compute credits</strong>. It compares local 4060&nbsp;Ti runs
-                  against credit-funded cloud training (A100s, HF Spaces, Gradio apps, etc.).
+                  enabled through <strong>$150 in Tinker compute credits</strong>. It compares local 4060&nbsp;Ti runs
+                  against cloud-funded runs on A100 instances or HF Spaces/Gradio jobs.
                 </p>
 
                 <p><strong>Core objectives:</strong></p>
                 <ul>
-                  <li>Measure wall-clock time, energy & CO₂ (Avinash methodology)</li>
-                  <li>Record $ cost per experiment (Tracks 1–3)</li>
-                  <li>Analyze cost-per-10k tokens and cost-per-1% accuracy</li>
-                  <li>Determine the break-even point: local GPU vs cloud compute</li>
+                  <li>Measure wall-clock runtime, energy use, and CO₂ footprint</li>
+                  <li>Track dollar/credit cost for every experiment (Tracks 1–3)</li>
+                  <li>Compute cost-per-10k tokens and cost-per-1% accuracy improvement</li>
+                  <li>Determine when local 8&nbsp;GB GPU is preferable vs cloud compute</li>
                 </ul>
 
                 <p><strong>Applied demonstration:</strong></p>
                 <ul>
                   <li>Prototype a LoRA-tuned image generator</li>
-                  <li>Train locally → scale with credits → deploy on HF Spaces</li>
-                  <li>Produce a reproducible, budget-aware workflow</li>
+                  <li>Train locally → scale using credits → deploy publicly via HF Spaces</li>
+                  <li>Produce a clean, reproducible LoRA workflow for low-budget research</li>
                 </ul>
 
                 <p style="margin-top:0.7rem;">
-                  For details on the funding program:
+                  Funding link:
                   <a href="https://thinkingmachines.ai/tinker/" target="_blank"
                      style="color:#60a5fa;">Thinking Machines – Tinker</a>
                 </p>
@@ -160,7 +160,7 @@
           </div>
         </div>
 
-        <!-- Literature/Links Sidebar -->
+        <!-- Sidebar -->
         <aside class="section-card">
           <div class="meta-label">References & Documents</div>
 
@@ -173,7 +173,7 @@
             </p>
 
             <p style="margin-top: 1.2rem;"><strong>Literature Review (placeholder):</strong></p>
-            <p><em>Overview of PEFT and LoRA-related work coming soon.</em></p>
+            <p><em>Overview of PEFT and LoRA-related research coming soon.</em></p>
           </div>
         </aside>
       </section>
